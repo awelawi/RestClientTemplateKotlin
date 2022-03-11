@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.codepath.apps.restclienttemplate.models.Tweet
 
 //Turns tweets objects to something the recyclerview can displau
-class TweetsAdapter(val tweets: List<Tweet>)  : RecyclerView.Adapter<TweetsAdapter.ViewHolder>(){
+class TweetsAdapter(val tweets: ArrayList<Tweet>)  : RecyclerView.Adapter<TweetsAdapter.ViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TweetsAdapter.ViewHolder {
@@ -40,6 +40,20 @@ class TweetsAdapter(val tweets: List<Tweet>)  : RecyclerView.Adapter<TweetsAdapt
 //    Tells adapter how many views are in your adapter class
     override fun getItemCount(): Int {
     return tweets.size
+    }
+
+    /* Within the RecyclerView.Adapter class */
+
+    // Clean all elements of the recycler
+    fun clear() {
+        tweets.clear()
+        notifyDataSetChanged()
+    }
+
+    // Add a list of items -- change to type used
+    fun addAll(tweetList: List<Tweet>) {
+        tweets.addAll(tweetList)
+        notifyDataSetChanged()
     }
 
 

@@ -1,7 +1,9 @@
 package com.codepath.apps.restclienttemplate.models
 
+import android.util.Log
 import org.json.JSONArray
 import org.json.JSONObject
+//import TimeFormatter.java
 
 class Tweet {
     //Display for the tweet
@@ -23,7 +25,8 @@ class Tweet {
         //Takes a whole jsonArray and converts it to a list of tweets
         fun fromJsonArray(jsonArray: JSONArray): List<Tweet>{
             val tweets = ArrayList<Tweet>()
-            for (i in 0..jsonArray.length()){
+            Log.i("ella", "Length of array is ${jsonArray.length()}")
+            for (i in 0 until  jsonArray.length()){
                 tweets.add(fromJson(jsonArray.getJSONObject(i)))
             }
             return tweets

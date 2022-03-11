@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/ivProfileImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:contentDescription="@string/placeholder_text"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,31 +19,38 @@
 
     <TextView
         android:id="@+id/tvTweetHandle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:fontFamily="@font/aguafina_script"
-        android:text="@string/placeholder_text"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/coda"
+        tools:text="@string/placeholder_text"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvFullTweet"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/ivProfileImg"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImg" />
 
     <TextView
         android:id="@+id/tvFullTweet"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:fontFamily="@font/coda"
-        android:text="@string/placeholder_text"
+        android:fontFamily="@font/aguafina_script"
+        tools:text="@string/placeholder_text"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTweetHandle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/ivProfileImg"
-        app:layout_constraintTop_toBottomOf="@+id/tvTweetHandle"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImg" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Hello"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
