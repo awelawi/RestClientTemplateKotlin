@@ -1,8 +1,12 @@
 package com.codepath.apps.restclienttemplate
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -50,6 +54,42 @@ class TimeLineActivity : AppCompatActivity() {
         populateHomeTimeline()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+//    Handles clicks on menu time
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.compose) {
+//            Toast.makeText(this, "The compose icon has been pressed", Toast.LENGTH_SHORT)
+//                .show()
+
+            //Navigate to a new screen using intent
+            val intent = Intent(this, ComposeActivity::class.java)
+            startActivityForResult(intent, REQUEST_CODE)
+        }
+    return super.onOptionsItemSelected(item)
+    }
+
+    //This method is called when we come back from ComposeActivity
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        //REQUEST_CODE IS DEFINED BELOW
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE){
+            //Extract name value from extra results
+                //Getting data from the intent which is the tweet
+            val tweet = data?.getParcelableExtra<Tweet>("tweet") as Tweet
+
+            //Update timeline
+             tweets.add(0, tweet)
+
+            //Update adapter
+            adapter.notifyItemInserted(0)
+            rvTweets.smoothScrollToPosition(0)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
     fun populateHomeTimeline(){
         client.getHomeTimeline(object : JsonHttpResponseHandler() {
 
@@ -88,5 +128,6 @@ class TimeLineActivity : AppCompatActivity() {
     }
     companion object{
         val TAG = "TImeline Activity"
+        val REQUEST_CODE = 25
     }
 }

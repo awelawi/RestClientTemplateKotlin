@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title = "tweetBird"
+        android:id="@+id/tweetBird"
+        android:icon="@mipmap/twitter_bird"
+        app:showAsAction="always"
+
+        />
+    <item android:title="Compose"
+    android:id = "@+id/compose"
+        android:icon="@mipmap/add_tweet"
+        app:showAsAction="always"
+    />
+</menu>

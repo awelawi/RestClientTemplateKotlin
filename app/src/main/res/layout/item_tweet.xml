@@ -33,7 +33,7 @@
         android:id="@+id/tvFullTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/aguafina_script"
+        android:fontFamily="@font/coda"
         tools:text="@string/placeholder_text"
         android:textStyle="bold"
         android:layout_margin="10dp"
@@ -42,7 +42,9 @@
         app:layout_constrainedWidth="true"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImg" />
+
     <TextView
+        android:id="@+id/tvTimeStamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,6 +53,17 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivProfileImg"
+        android:layout_margin="5dp"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

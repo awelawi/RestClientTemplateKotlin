@@ -6,5 +6,7 @@
     <string name="intent_scheme">oauth</string>
     <string name="intent_host">cprest</string>
     <string name="placeholder_text">I am a girl</string>
+    <string name="UseButton">Tweet</string>
+    <string name="display_word_count">displayCount</string>
 
 </resources>

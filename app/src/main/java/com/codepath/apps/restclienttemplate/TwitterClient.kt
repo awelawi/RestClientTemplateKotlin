@@ -4,9 +4,7 @@ import android.content.Context
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.codepath.oauth.OAuthBaseClient
-import com.github.scribejava.apis.FlickrApi
 import com.github.scribejava.apis.TwitterApi
-import com.github.scribejava.core.builder.api.BaseApi
 
 /*
  *
@@ -72,4 +70,17 @@ class TwitterClient(context: Context) : OAuthBaseClient(
 	 *    i.e client.get(apiUrl, params, handler)
 	 *    i.e client.post(apiUrl, params, handler)
 	 */
+
+    fun publishTweet(tweetContent: String, handler: JsonHttpResponseHandler) {
+        val apiUrl =
+            getApiUrl("statuses/update.json")
+
+        // Can specify query string params directly or through RequestParams.
+        val params = RequestParams()
+//        Count refers to how many tweets per api call which is set to 25
+        params.put("count", "25")
+        // sinceId refers to how many new tweets to be shown
+        params.put("status", tweetContent)
+        client.post(apiUrl, params,"", handler)
+    }
 }
